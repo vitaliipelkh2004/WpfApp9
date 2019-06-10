@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="56,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Name" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="41"/>
+        <Label Content="Width" HorizontalAlignment="Left" Height="24" Margin="10,39,0,0" VerticalAlignment="Top" Width="41"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="56,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Height" HorizontalAlignment="Left" Height="24" Margin="10,68,0,0" VerticalAlignment="Top" Width="41"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="56,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Days" HorizontalAlignment="Left" Height="24" Margin="10,92,0,0" VerticalAlignment="Top" Width="41"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="56,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123" TextChanged="TextBox_TextChanged"/>
+
     </Grid>
 </Window>
