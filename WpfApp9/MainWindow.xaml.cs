@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,8 @@ namespace WpfApp9
         List<Storage> items = new List<Storage>();
         DateTime now = new DateTime(2019, 6, 11);
         Storage item;
-
+        ObservableCollection<Storage> itemsnew = new ObservableCollection<Storage>();
+        private int current = -1;
         public MainWindow()
         {
             InitializeComponent();
@@ -75,7 +77,44 @@ namespace WpfApp9
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            XmlSerializer xml = new XmlSerializer(typeof(ObservableCollection<Storage>));
+            FileStream t = new FileStream("GAME1.xml", FileMode.Open, FileAccess.Read);
+            itemsnew = (ObservableCollection<Storage>)xml.Deserialize(t);
+            t.Close();
+            this.DataContext = itemsnew[1];
+        }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (current == -1)
+            {
+                this.DataContext = itemsnew.FirstOrDefault();
+                current = 0;
+
+            }
+            else if (current == 0)
+            {
+                this.DataContext = itemsnew.LastOrDefault();
+                current = itemsnew.Count - 1;
+
+            }
+            else
+            {
+                this.DataContext = itemsnew[current-- - 1];
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (current == -1 || current == itemsnew.Count - 1)
+            {
+                this.DataContext = itemsnew.FirstOrDefault();
+                current = 0;
+            }
+            else
+            {
+                this.DataContext = itemsnew[++current];
+            }
         }
     }  
 }

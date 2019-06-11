@@ -19,10 +19,20 @@
         <Label Content="Owner" HorizontalAlignment="Left" Height="24" Margin="7,39,0,0" VerticalAlignment="Top" Width="44"/>
         <Button x:Name="button1" Content="Add to Storaged" HorizontalAlignment="Left" Height="33" Margin="10,154,0,0" VerticalAlignment="Top" Width="170" Click="Button_Click" Background="#26D4DC"/>
         <DatePicker x:Name="datepicker1" HorizontalAlignment="Left" Height="27" Margin="10,192,0,0" VerticalAlignment="Top" Width="170" SelectedDateChanged="Datepicker1_SelectedDateChanged"/>
-        <Button x:Name="itembox" Content="" HorizontalAlignment="Left" Height="113" Margin="586,74,0,0" VerticalAlignment="Top" Width="98" Click="Itembox_Click"/>
-        <Button Content="&lt;-" HorizontalAlignment="Left" Height="40" Margin="586,191,0,0" VerticalAlignment="Top" Width="40" FontSize="20" Background="#26D4DC"/>
-        <Button Content="-&gt;" HorizontalAlignment="Left" Height="40" Margin="644,191,0,0" VerticalAlignment="Top" Width="40" FontSize="20" Background="#26D4DC"/>
+        <Button x:Name="itembox" Content="" HorizontalAlignment="Left" Height="{Binding Path=Height}" Margin="390,39,0,0" VerticalAlignment="Top" Width="{Binding Path=Width}" Click="Itembox_Click"/>
+        <Button Content="&lt;-" HorizontalAlignment="Left" Height="40" Margin="448,349,0,0" VerticalAlignment="Top" Width="40" FontSize="20" Background="#26D4DC" Click="Button_Click_2"/>
+        <Button Content="-&gt;" HorizontalAlignment="Left" Height="40" Margin="626,361,0,0" VerticalAlignment="Top" Width="40" FontSize="20" Background="#26D4DC" Click="Button_Click_3"/>
         <Button Content="+" HorizontalAlignment="Left" Height="24" Margin="534,11,0,0" VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"/>
+        <TextBox x:Name="nametext2" IsEnabled="False" HorizontalAlignment="Left" Height="24" Margin="590,44,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.498,0.123"/>
+        <Label Content="Name" HorizontalAlignment="Left" Height="24" Margin="537,44,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="Width" HorizontalAlignment="Left" Height="24" Margin="537,101,0,0" VerticalAlignment="Top" Width="47"/>
+        <TextBox x:Name="widhttext2" IsEnabled="False" HorizontalAlignment="Left" Height="24" Margin="590,101,0,0" TextWrapping="Wrap" Text="{Binding Path=Width}" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.498,0.123"/>
+        <Label Content="Height" HorizontalAlignment="Left" Height="24" Margin="537,130,0,0" VerticalAlignment="Top" Width="47"/>
+        <TextBox x:Name="heighttext2" IsEnabled="False" HorizontalAlignment="Left" Height="24" Margin="590,130,0,0" TextWrapping="Wrap" Text="{Binding Path=Height}" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.498,0.123"/>
+        <Label Content="Days" HorizontalAlignment="Left" Height="24" Margin="537,154,0,0" VerticalAlignment="Top" Width="47"/>
+        <TextBox x:Name="daystext2" HorizontalAlignment="Left" Height="24" Margin="590,159,0,0" TextWrapping="Wrap" Text="{Binding Path=Days}" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.498,0.123"/>
+        <TextBox x:Name="ownertext2" HorizontalAlignment="Left" Height="24" Margin="590,73,0,0" TextWrapping="Wrap" Text="{Binding Path=Owner}" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.498,0.123"/>
+        <Label Content="Owner" HorizontalAlignment="Left" Height="24" Margin="534,73,0,0" VerticalAlignment="Top" Width="50"/>
 
 
     </Grid>
