@@ -6,15 +6,24 @@
         xmlns:local="clr-namespace:WpfApp9"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="56,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123" TextChanged="TextBox_TextChanged"/>
+    <Grid x:Name="main">
+        <TextBox x:Name="nametext" HorizontalAlignment="Left" Height="24" Margin="56,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123"/>
         <Label Content="Name" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="41"/>
-        <Label Content="Width" HorizontalAlignment="Left" Height="24" Margin="10,39,0,0" VerticalAlignment="Top" Width="41"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="56,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Height" HorizontalAlignment="Left" Height="24" Margin="10,68,0,0" VerticalAlignment="Top" Width="41"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="56,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Days" HorizontalAlignment="Left" Height="24" Margin="10,92,0,0" VerticalAlignment="Top" Width="41"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="56,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Width" HorizontalAlignment="Left" Height="24" Margin="10,67,0,0" VerticalAlignment="Top" Width="41"/>
+        <TextBox x:Name="widhttext" HorizontalAlignment="Left" Height="24" Margin="56,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123"/>
+        <Label Content="Height" HorizontalAlignment="Left" Height="24" Margin="10,96,0,0" VerticalAlignment="Top" Width="41"/>
+        <TextBox x:Name="heighttext" HorizontalAlignment="Left" Height="24" Margin="56,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123"/>
+        <Label Content="Days" HorizontalAlignment="Left" Height="24" Margin="10,120,0,0" VerticalAlignment="Top" Width="41"/>
+        <TextBox x:Name="daystext" HorizontalAlignment="Left" Height="24" Margin="56,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123"/>
+        <TextBox x:Name="ownertext" HorizontalAlignment="Left" Height="24" Margin="56,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123"/>
+        <Label Content="Owner" HorizontalAlignment="Left" Height="24" Margin="7,39,0,0" VerticalAlignment="Top" Width="44"/>
+        <Button x:Name="button1" Content="Add to Storaged" HorizontalAlignment="Left" Height="33" Margin="10,154,0,0" VerticalAlignment="Top" Width="170" Click="Button_Click" Background="#26D4DC"/>
+        <DatePicker x:Name="datepicker1" HorizontalAlignment="Left" Height="27" Margin="10,192,0,0" VerticalAlignment="Top" Width="170" SelectedDateChanged="Datepicker1_SelectedDateChanged"/>
+        <Button x:Name="itembox" Content="" HorizontalAlignment="Left" Height="113" Margin="586,74,0,0" VerticalAlignment="Top" Width="98" Click="Itembox_Click"/>
+        <Button Content="&lt;-" HorizontalAlignment="Left" Height="40" Margin="586,191,0,0" VerticalAlignment="Top" Width="40" FontSize="20" Background="#26D4DC"/>
+        <Button Content="-&gt;" HorizontalAlignment="Left" Height="40" Margin="644,191,0,0" VerticalAlignment="Top" Width="40" FontSize="20" Background="#26D4DC"/>
+        <Button Content="+" HorizontalAlignment="Left" Height="24" Margin="534,11,0,0" VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"/>
+
 
     </Grid>
 </Window>
