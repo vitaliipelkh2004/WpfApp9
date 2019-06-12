@@ -30,7 +30,10 @@ namespace WpfApp9
             Width = w;
             Height = h; 
         }
-
+        public override string ToString()
+        {
+            return $"\n______________________________\nOwner: {Owner}\nName: {Name}\nMoney: {Money}\nArrears: {Arrears}\n______________________________";
+        }
 
     }
 }

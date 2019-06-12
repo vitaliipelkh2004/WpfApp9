@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp9"
         mc:Ignorable="d"
+        
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="main">
         <TextBox x:Name="nametext" HorizontalAlignment="Left" Height="24" Margin="56,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.498,0.123"/>
@@ -20,8 +21,8 @@
         <Button x:Name="button1" Content="Add to Storaged" HorizontalAlignment="Left" Height="33" Margin="10,154,0,0" VerticalAlignment="Top" Width="170" Click="Button_Click" Background="#26D4DC"/>
         <DatePicker x:Name="datepicker1" HorizontalAlignment="Left" Height="27" Margin="10,192,0,0" VerticalAlignment="Top" Width="170" SelectedDateChanged="Datepicker1_SelectedDateChanged"/>
         <Button x:Name="itembox" Content="" HorizontalAlignment="Left" Height="{Binding Path=Height}" Margin="407,39,0,0" VerticalAlignment="Top" Width="{Binding Path=Width}" Visibility="Hidden" Click="Itembox_Click"/>
-        <Button Content="&lt;-" HorizontalAlignment="Left" Height="40" Margin="534,252,0,0" VerticalAlignment="Top" Width="40" FontSize="20" Background="#26D4DC" Click="Button_Click_2"/>
-        <Button Content="-&gt;" HorizontalAlignment="Left" Height="40" Margin="692,252,0,0" VerticalAlignment="Top" Width="40" FontSize="20" Background="#26D4DC" Click="Button_Click_3"/>
+        <Button x:Name="leftbutton" Content="&lt;-" HorizontalAlignment="Left" IsEnabled="False" Height="40" Margin="534,188,0,0" VerticalAlignment="Top" Width="40" FontSize="20" Background="#26D4DC" Click="Button_Click_2"/>
+        <Button x:Name="rightbutton" Content="-&gt;" HorizontalAlignment="Left" Height="40" Margin="692,188,0,0" VerticalAlignment="Top"  IsEnabled="False" Width="40" FontSize="20" Background="#26D4DC" Click="Button_Click_3"/>
         <Button Content="+" HorizontalAlignment="Left" Height="24" Margin="534,11,0,0" VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"/>
         <TextBox x:Name="nametext2" IsEnabled="False" HorizontalAlignment="Left" Height="24" Margin="590,44,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.498,0.123"/>
         <Label Content="Name" HorizontalAlignment="Left" Height="24" Margin="537,44,0,0" VerticalAlignment="Top" Width="47"/>
@@ -33,7 +34,9 @@
         <TextBox x:Name="daystext2" HorizontalAlignment="Left" Height="24" Margin="590,159,0,0" IsEnabled="False" TextWrapping="Wrap" Text="{Binding Path=Days}" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.498,0.123"/>
         <TextBox x:Name="ownertext2" HorizontalAlignment="Left" Height="24" Margin="590,73,0,0" TextWrapping="Wrap" Text="{Binding Path=Owner}" IsEnabled="False" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.498,0.123"/>
         <Label Content="Owner" HorizontalAlignment="Left" Height="24" Margin="534,73,0,0" VerticalAlignment="Top" Width="50"/>
-        <Button x:Name="deletebutton" Content="Delete" HorizontalAlignment="Left" Height="40" Margin="590,252,0,0" VerticalAlignment="Top" IsEnabled="False" Width="88" Background="#26D4DC" Click="Button_Click_4"/>
+        <Button x:Name="deletebutton" Content="Delete" HorizontalAlignment="Left" Height="40" Margin="590,188,0,0" VerticalAlignment="Top" IsEnabled="False" Width="88" Background="#26D4DC" Click="Button_Click_4"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="33" Margin="305,331,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click_5"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="41" Margin="102,327,0,0" VerticalAlignment="Top" Width="144" Click="Button_Click_6"/>
 
 
     </Grid>

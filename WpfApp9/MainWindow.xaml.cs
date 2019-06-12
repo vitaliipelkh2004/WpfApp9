@@ -59,7 +59,6 @@ namespace WpfApp9
                 datepicker1.IsEnabled = true;
                 items.Add(item);                        
                 Area = Area - item.Width * item.Height;
-                MessageBox.Show($"| {Area} |");
                 foreach (var item in itemss)
                 {
                     if (item is TextBox textbox1)
@@ -100,13 +99,15 @@ namespace WpfApp9
         {
             try
             {
-                itembox.Visibility = Visibility;
+             //itembox.Visibility = Visibility;
                 XmlSerializer xml = new XmlSerializer(typeof(ObservableCollection<Storage>));
                 FileStream t = new FileStream("1.xml", FileMode.Open, FileAccess.Read);
                 itemsnew = (ObservableCollection<Storage>)xml.Deserialize(t);
                 t.Close();
                 this.DataContext = itemsnew[1];
                 deletebutton.IsEnabled = true;
+                leftbutton.IsEnabled = true;
+                rightbutton.IsEnabled = true;
             }
         catch
             {
@@ -155,7 +156,6 @@ namespace WpfApp9
         {
             MessageBox.Show($"To pay {itemsnew[current].Arrears+itemsnew[current].Money} $");
             Area = Area + itemsnew[current].Width * itemsnew[current].Height;
-            MessageBox.Show($"| {Area} |");
             itemsnew.RemoveAt(current);
             try
             {
@@ -165,6 +165,29 @@ namespace WpfApp9
             catch
             { }
 
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Label label = new Label();
+            
+            for (int i = 1; i < itemsnew.Count; i++)
+                label.Content += itemsnew[i].ToString();
+          
+            Window window = new Window();
+            window.Height = 400;
+            window.Width = 400;
+            window.Show();
+            window.ToolTip = "Some Window With Money";
+            window.Title = "Some Window With Money";            
+            window.Content = label;
+           
+
+
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
         }
     }  
 }
