@@ -16,6 +16,7 @@ namespace WpfApp9
         public int Height { set; get; }
         public double Arrears { set; get; }
         public double Money { set; get; }
+        public int Area { set; get; }
         public Storage()
         {
 

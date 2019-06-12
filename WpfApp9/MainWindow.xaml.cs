@@ -24,6 +24,7 @@ namespace WpfApp9
         DateTime now = new DateTime(2019, 6, 11);
         Storage item;
         int Area=10000;
+        double AllMoney;
         ObservableCollection<Storage> itemsnew = new ObservableCollection<Storage>();
         private int current = -1;
         public MainWindow()
@@ -108,6 +109,10 @@ namespace WpfApp9
                 deletebutton.IsEnabled = true;
                 leftbutton.IsEnabled = true;
                 rightbutton.IsEnabled = true;
+                foreach(var item in itemsnew)
+                {
+                    Area = Area - item.Width * item.Height;
+                }
             }
         catch
             {
@@ -170,17 +175,16 @@ namespace WpfApp9
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
             Label label = new Label();
-            
-            for (int i = 1; i < itemsnew.Count; i++)
-                label.Content += itemsnew[i].ToString();
-          
+            DataGrid dataGrid = new DataGrid();
+            dataGrid.ItemsSource = itemsnew;
             Window window = new Window();
             window.Height = 400;
             window.Width = 400;
             window.Show();
             window.ToolTip = "Some Window With Money";
-            window.Title = "Some Window With Money";            
-            window.Content = label;
+            window.Title = "Some Window With Money";
+            //window.Content = dataGrid;
+            //window.Content = label;
            
 
 
@@ -188,6 +192,33 @@ namespace WpfApp9
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
+            Window window = new Window();
+            window.Height = 300;
+            window.Width = 300;
+            window.Title = "Arrears";
+            
+            window.Show();
+            Label label = new Label();
+            window.Content = label;
+            foreach (var item in itemsnew)
+            {
+                if(item.Arrears>0)
+                {                    
+                    
+                    label.Content += $"Owner:{item.Owner} Name:{item.Name}\n";
+                    
+                }
+            }
+
+
+
+
+
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Area {Area}");
         }
     }  
 }
