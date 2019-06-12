@@ -34,9 +34,20 @@ namespace WpfApp9
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            var itemss = main.Children;
             try
             {
-                var itemss = main.Children;               
+                if (Area -  Int32.Parse(widhttext.Text) *Int32.Parse(heighttext.Text) <= 0)
+                {
+                    MessageBox.Show($"{item.Name} very big");
+                    foreach (var item in itemss)
+                    {
+                        if (item is TextBox textbox1)
+                        {
+                            textbox1.Clear();
+                        }
+                    }
+                }        
                 item = new Storage();
                 item.Owner = ownertext.Text;
                 item.Name = nametext.Text;
@@ -46,20 +57,9 @@ namespace WpfApp9
                 item.Money = item.Days * 5;
                 item.Arrears = 0;
                 datepicker1.IsEnabled = true;
-                items.Add(item);
+                items.Add(item);                        
                 Area = Area - item.Width * item.Height;
-                if (Area <= 0)
-                {
-                    MessageBox.Show("Storage is full");
-                    foreach (var item in itemss)
-                    {
-                        if (item is TextBox textbox1)
-                        {
-                            textbox1.Clear();
-                        }
-                    }
-                    return;
-                }
+                MessageBox.Show($"| {Area} |");
                 foreach (var item in itemss)
                 {
                     if (item is TextBox textbox1)
@@ -98,20 +98,41 @@ namespace WpfApp9
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            itembox.Visibility = Visibility;
-            XmlSerializer xml = new XmlSerializer(typeof(ObservableCollection<Storage>));
-            FileStream t = new FileStream("1.xml", FileMode.Open, FileAccess.Read);
-            itemsnew = (ObservableCollection<Storage>)xml.Deserialize(t);
-            t.Close();
-            this.DataContext = itemsnew[1];
-            deletebutton.IsEnabled = true;
-        }
+            try
+            {
+                itembox.Visibility = Visibility;
+                XmlSerializer xml = new XmlSerializer(typeof(ObservableCollection<Storage>));
+                FileStream t = new FileStream("1.xml", FileMode.Open, FileAccess.Read);
+                itemsnew = (ObservableCollection<Storage>)xml.Deserialize(t);
+                t.Close();
+                this.DataContext = itemsnew[1];
+                deletebutton.IsEnabled = true;
+            }
+        catch
+            {
+
+            }
+       }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (current == -1)
+           
+                if (current == -1 || current == itemsnew.Count - 1)
+                {
+                    this.DataContext = itemsnew[1];
+                    current = 0;
+                }
+                else
+                {
+                    this.DataContext = itemsnew[++current];
+                }
+                        
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+          
+          if (current == -1)
                 {
                     this.DataContext = itemsnew.FirstOrDefault();
                     current = 0;
@@ -127,37 +148,14 @@ namespace WpfApp9
                 {
                     this.DataContext = itemsnew[current-- - 1];
                 }
-            }
-            catch 
-            {
 
-            }
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (current == -1 || current == itemsnew.Count - 1)
-                {
-                    this.DataContext = itemsnew.FirstOrDefault();
-                    current = 0;
-                }
-                else
-                {
-                    this.DataContext = itemsnew[++current];
-                }
-            }
-            catch
-            {
-
-            }
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"To pay {itemsnew[current].Arrears+itemsnew[current].Money}");
-
+            MessageBox.Show($"To pay {itemsnew[current].Arrears+itemsnew[current].Money} $");
+            Area = Area + itemsnew[current].Width * itemsnew[current].Height;
+            MessageBox.Show($"| {Area} |");
             itemsnew.RemoveAt(current);
             try
             {
