@@ -30,7 +30,11 @@ namespace WpfApp9
         public MainWindow()
         {
             InitializeComponent();
-            datepicker1.IsEnabled = false;          
+            nametext.IsEnabled = false;
+            ownertext.IsEnabled = false;
+            widhttext.IsEnabled = false;
+            heighttext.IsEnabled = false;
+            daystext.IsEnabled = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -57,7 +61,13 @@ namespace WpfApp9
                 item.Days = Int32.Parse(daystext.Text);
                 item.Money = item.Days * 5;
                 item.Arrears = 0;
-                datepicker1.IsEnabled = true;
+                foreach (var item in items)
+                {
+                    if (datepicker1.SelectedDate.Value >= now.AddDays(item.Days))
+                    {
+                        item.Arrears = item.Money * 5 / 100;                       
+                    }
+                }
                 items.Add(item);                        
                 Area = Area - item.Width * item.Height;
                 foreach (var item in itemss)
@@ -81,12 +91,14 @@ namespace WpfApp9
         }
         private void Datepicker1_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (datepicker1.SelectedDate.Value >= now.AddDays(item.Days))
-            {
-                item.Arrears = item.Money * 5 / 100;
-                MessageBox.Show($"Arrears  {item.Arrears.ToString()}");
-                datepicker1.IsEnabled = false;
-            }
+           
+         
+                    datepicker1.IsEnabled = false;
+                    nametext.IsEnabled = true;
+                    ownertext.IsEnabled = true;
+                    widhttext.IsEnabled = true;
+                    heighttext.IsEnabled = true;
+                    daystext.IsEnabled = true; 
         }
 
        
@@ -185,21 +197,7 @@ namespace WpfApp9
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            //Label label = new Label();
-            //DataGrid dataGrid = new DataGrid();
-            //dataGrid.ItemsSource = itemsnew;
-            //Window window = new Window();
-            //window.Height = 400;
-            //window.Width = 400;
-            //window.Show();
-
-            //window.ToolTip = "Some Window With Money";
-            //window.Title = "Some Window With Money";
-            ////window.Content = dataGrid;
-            ////window.Content = label;
-            //window.Content = label;
             MessageBox.Show($"All Money {AllMoney} $");
-
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
@@ -238,7 +236,7 @@ namespace WpfApp9
             Window window = new Window();
             window.Height = 300;
             window.Width = 300;
-            window.Title = "Days end";
+           // window.Title = "Days end";
 
             window.Show();
             Label label = new Label();
