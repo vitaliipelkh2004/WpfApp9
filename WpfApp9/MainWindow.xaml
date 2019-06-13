@@ -35,9 +35,10 @@
         <TextBox x:Name="ownertext2" HorizontalAlignment="Left" Height="24" Margin="275,69,0,0" TextWrapping="Wrap" Text="{Binding Path=Owner}" IsEnabled="False" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.498,0.123"/>
         <Label Content="Owner" HorizontalAlignment="Left" Height="24" Margin="219,69,0,0" VerticalAlignment="Top" Width="50"/>
         <Button x:Name="deletebutton" Content="Delete" HorizontalAlignment="Left" Height="40" Margin="275,184,0,0" VerticalAlignment="Top" IsEnabled="False" Width="88" Background="#26D4DC" Click="Button_Click_4"/>
-        <Button Content="Infomation" HorizontalAlignment="Left" Height="33" Margin="301,248,0,0" VerticalAlignment="Top" Width="94" Background="CadetBlue" Click="Button_Click_5"/>
-        <Button Content="Infomation" HorizontalAlignment="Left" Height="33" Margin="165,248,0,0" VerticalAlignment="Top" Width="94" Background="CadetBlue" Click="Button_Click_6"/>
+        <Button Content="Infomation" HorizontalAlignment="Left" Height="33" Margin="208,248,0,0" VerticalAlignment="Top" Width="94" Background="CadetBlue" Click="Button_Click_5"/>
+        <Button Content="Infomation" HorizontalAlignment="Left" Height="33" Margin="109,248,0,0" VerticalAlignment="Top" Width="94" Background="CadetBlue" Click="Button_Click_6"/>
         <Button Content="Infomation" HorizontalAlignment="Left" Height="33" Margin="10,248,0,0" VerticalAlignment="Top" Width="94" Background="CadetBlue" Click="Button_Click_7"/>
+        <Button Content="Infomation" HorizontalAlignment="Left" Height="33" Margin="307,248,0,0" VerticalAlignment="Top" Width="94" Background="CadetBlue" Click="Button_Click_8"/>
 
 
     </Grid>

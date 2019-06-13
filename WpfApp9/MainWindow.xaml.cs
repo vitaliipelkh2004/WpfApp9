@@ -105,7 +105,7 @@ namespace WpfApp9
                 FileStream t = new FileStream("1.xml", FileMode.Open, FileAccess.Read);
                 itemsnew = (ObservableCollection<Storage>)xml.Deserialize(t);
                 t.Close();
-                this.DataContext = itemsnew[1];
+                this.DataContext = itemsnew.First();
                 deletebutton.IsEnabled = true;
                 leftbutton.IsEnabled = true;
                 rightbutton.IsEnabled = true;
@@ -122,23 +122,27 @@ namespace WpfApp9
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-           
+            try
+            {
                 if (current == -1 || current == itemsnew.Count - 1)
                 {
                     this.DataContext = itemsnew[1];
                     current = 0;
                 }
+
                 else
                 {
                     this.DataContext = itemsnew[++current];
                 }
-                        
+            }
+            catch { }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-          
-          if (current == -1)
+            try
+            {
+                if (current == -1)
                 {
                     this.DataContext = itemsnew.FirstOrDefault();
                     current = 0;
@@ -154,39 +158,47 @@ namespace WpfApp9
                 {
                     this.DataContext = itemsnew[current-- - 1];
                 }
+            }
+            catch
+            {
 
+            }
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"To pay {itemsnew[current].Arrears+itemsnew[current].Money} $");
-            Area = Area + itemsnew[current].Width * itemsnew[current].Height;
-            itemsnew.RemoveAt(current);
             try
             {
-                this.DataContext = itemsnew.LastOrDefault();
-
+                MessageBox.Show($"To pay {itemsnew[current].Arrears + itemsnew[current].Money} $");
+                Area = Area + itemsnew[current].Width * itemsnew[current].Height;
+                AllMoney = itemsnew[current].Arrears + itemsnew[current].Money;
+                itemsnew.RemoveAt(current);
+                   if (itemsnew.Count > 0)
+                    {
+                        this.DataContext = itemsnew[1];
+                    }
+                    this.DataContext = itemsnew[1];
+               
             }
-            catch
-            { }
-
+            catch { }
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            Label label = new Label();
-            DataGrid dataGrid = new DataGrid();
-            dataGrid.ItemsSource = itemsnew;
-            Window window = new Window();
-            window.Height = 400;
-            window.Width = 400;
-            window.Show();
-            window.ToolTip = "Some Window With Money";
-            window.Title = "Some Window With Money";
-            //window.Content = dataGrid;
-            //window.Content = label;
-           
+            //Label label = new Label();
+            //DataGrid dataGrid = new DataGrid();
+            //dataGrid.ItemsSource = itemsnew;
+            //Window window = new Window();
+            //window.Height = 400;
+            //window.Width = 400;
+            //window.Show();
 
+            //window.ToolTip = "Some Window With Money";
+            //window.Title = "Some Window With Money";
+            ////window.Content = dataGrid;
+            ////window.Content = label;
+            //window.Content = label;
+            MessageBox.Show($"All Money {AllMoney} $");
 
         }
 
@@ -219,6 +231,30 @@ namespace WpfApp9
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
             MessageBox.Show($"Area {Area}");
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            Window window = new Window();
+            window.Height = 300;
+            window.Width = 300;
+            window.Title = "Days end";
+
+            window.Show();
+            Label label = new Label();
+            window.Content = label;
+            foreach (var item in itemsnew)
+            {
+                if(now.Day+item.Days-now.Day==1)
+                {
+                    label.Content += $"Owner {item.Owner}\nName {item.Name}";
+                }
+
+
+            }
+
+
+
         }
     }  
 }
